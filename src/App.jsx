@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './app.scss';
+import './App.scss';
 
 function shuffle(array) {
   const result = [...array];
