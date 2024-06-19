@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 const numbers = [1, 4, 7, 10, 13, 16, 19, 21, 23, 25];
 
 export default function App() {
-  const [pokemon, setPokemon] = useState();
-  const [loading, setLoading] = useState(true);
+  const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
     const result = [];
@@ -16,21 +15,20 @@ export default function App() {
     });
 
     setPokemon(result);
-    setLoading(false);
   }, []);
 
   return (
     <>
-      {loading ? <p>loading</p> : <p>done</p>}
+      {pokemon.length ? <p>done</p> : <p>loading</p>}
       <p
         onClick={() => {
           console.log('⬜️⬜️⬜️⬜️⬜️');
           console.log('numbers:', numbers);
           console.log('pokemon:', pokemon);
-          console.log(pokemon?.length >= numbers.length);
+          console.log(pokemon.length === numbers.length);
         }}
       >
-        pokemon length: {pokemon?.length}
+        pokemon length: {pokemon.length}
       </p>
       <p>numbers length: {numbers.length}</p>
     </>
